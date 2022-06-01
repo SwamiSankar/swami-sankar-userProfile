@@ -6,4 +6,4 @@ Css modules are used for some CSS adjustments. Responsiveness is checked on diff
 
 Deployed using Vercel Hosting platform.
 
-URL : 
+URL : https://swami-sankar-user-profile.vercel.app/
