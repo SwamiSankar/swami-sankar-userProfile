@@ -1,0 +1,13 @@
+.userDetails{
+    display: flex;
+    flex-direction: row;
+
+}
+
+.userDetails p{
+    margin-left: 10px ;
+}
+
+.userDetails svg{
+    margin-top: 4px;
+}

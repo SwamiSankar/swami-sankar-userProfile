@@ -1,0 +1,11 @@
+.imageCover{
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    background-color: #f5f5f5;
+}
+
+.coverImage{
+    width: 200px;
+    height: 200px;
+}

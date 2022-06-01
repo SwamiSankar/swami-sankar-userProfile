@@ -1,0 +1,19 @@
+.userCard{
+    width: 90%;
+    
+}
+
+.cardBorder{
+    border: 1px solid #e8e8e8;
+}
+.cardButton{
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+button span svg{
+    height: 1.5em;
+    width: 1.5em;
+}
