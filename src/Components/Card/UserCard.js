@@ -25,6 +25,10 @@ const UserCard = ({ user, handleDelete }) => {
   const phone = editedUser.phone;
   const website = editedUser.website;
 
+  useEffect(() => {
+    setEditedUser(user);
+  }, [user]);
+
   const showModal = () => {
     setVisible(true);
   };
@@ -39,9 +43,7 @@ const UserCard = ({ user, handleDelete }) => {
     setVisible(false);
   };
 
-  useEffect(() => {
-    console.log(editedUser);
-  }, [editedUser]);
+  useEffect(() => {}, [editedUser]);
 
   const initialValues = {
     name: editedUser.name,

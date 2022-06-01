@@ -8,6 +8,8 @@ import Loader from '../Loader/Loader';
 const CardList = () => {
   const [userList, setUserList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [deleteId, setDeleteId] = useState(0);
+  const [resultArray, setResultArray] = useState([]);
 
   const handleLoading = () => {
     setIsLoading(false);
@@ -26,36 +28,40 @@ const CardList = () => {
   }, []);
 
   const handleDelete = (id) => {
+    setDeleteId(id);
+  };
+
+  useEffect(() => {
     setUserList((prev) =>
       prev.filter((user) => {
-        return user.id !== id;
+        return user.id !== deleteId;
       })
     );
-  };
+  }, [deleteId]);
 
   useEffect(() => {
     if (userList.length === 0) {
       setIsLoading(true);
     }
+    let perChunk = 4;
+    setResultArray(
+      userList.reduce((resultArray, item, index) => {
+        const chunkIndex = Math.floor(index / perChunk);
+
+        if (!resultArray[chunkIndex]) {
+          resultArray[chunkIndex] = [];
+        }
+
+        resultArray[chunkIndex].push(item);
+
+        return resultArray;
+      }, [])
+    );
   }, [userList]);
 
-  let perChunk = 4;
-
-  let result = userList.reduce((resultArray, item, index) => {
-    const chunkIndex = Math.floor(index / perChunk);
-
-    if (!resultArray[chunkIndex]) {
-      resultArray[chunkIndex] = [];
-    }
-
-    resultArray[chunkIndex].push(item);
-
-    return resultArray;
-  }, []);
-
-  return !isLoading ? (
+  return !isLoading && resultArray !== undefined ? (
     <>
-      {result.map((list) => {
+      {resultArray.map((list) => {
         return (
           <Row
             className={styles.cardRow}
