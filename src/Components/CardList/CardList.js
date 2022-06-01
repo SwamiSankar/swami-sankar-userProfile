@@ -57,7 +57,10 @@ const CardList = () => {
     <>
       {result.map((list) => {
         return (
-          <Row className={styles.cardRow}>
+          <Row
+            className={styles.cardRow}
+            gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}
+          >
             {list.map((user) => {
               return (
                 <Col
@@ -68,10 +71,10 @@ const CardList = () => {
                     span: 24,
                   }}
                   md={{
-                    span: 8,
+                    span: 6,
                   }}
                   lg={{
-                    span: 8,
+                    span: 6,
                   }}
                   xl={{
                     span: 6,
